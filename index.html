@@ -37,7 +37,13 @@ get('webSearch').addEventListener('submit',()=>{
  get('query').value = [domain && 'site:'+domain,'appartamento affitto',get('town').value,'-transitorio','-stagionale','-vacanze'].filter(Boolean).join(' ');
 });
 async function start() {
- const response = await fetch('./affitti.json', {cache:'no-store'});
+ let response;
+ try {
+  response = await fetch('https://raw.githubusercontent.com/MarcoVeneri/Casa-Valdarno/main/affitti.json',{cache:'no-store',signal:AbortSignal.timeout(6000)});
+  if (!response.ok) throw Error('Catalogo remoto indisponibile');
+ } catch {
+  response = await fetch('./affitti.json',{cache:'no-store'});
+ }
  if (!response.ok) throw Error('Catalogo indisponibile');
  const data = await response.json();
  let checks;
