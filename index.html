@@ -1,16 +1,14 @@
 <!doctype html>
-<html lang="it"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#16483b"><title>Casa Valdarno · Affitti</title>
+<html lang="it"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff"><title>Casa Valdarno · Affitti</title>
 <style>
 :root{color-scheme:light;--ink:#1e302c;--accent:#216955;--line:#e0e7e2;--paper:#f6f8f5}
 *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
 main,header>div{width:min(1080px,calc(100% - 48px));margin:auto}
-header{background:#e7ede1;position:relative;overflow:hidden;isolation:isolate;padding:22px 0 42px}
-header>div{position:relative;z-index:2}header a{color:#275446;text-decoration:none;font-size:.85rem;font-weight:650;display:inline-flex;align-items:center;min-height:44px}
-h1,h2,h3,p{margin:0}h1{font-size:clamp(2.5rem,7vw,5.6rem);letter-spacing:-.065em;line-height:1.02;font-weight:730;margin:14px 0 12px}header p{font-size:1rem;max-width:52%;color:#334b3e}
-.land{position:absolute;right:0;bottom:0;width:44%;height:100%;overflow:hidden;z-index:0;background:radial-gradient(circle at 72% 26%,#f3ce87 0 20px,transparent 21px)}
-.land:before,.land:after{content:"";position:absolute;width:145%;height:92%;border-radius:50% 50% 0 0;bottom:-46%;left:-5%;background:#97af8b;transform:rotate(-13deg)}
-.land:after{left:20%;bottom:-55%;background:#557e68;transform:rotate(14deg)}
-.tree{position:absolute;background:#365b48;width:9px;height:54px;bottom:28%;right:35%;border-radius:65% 60% 35% 35%;transform-origin:bottom;z-index:1}.tree:nth-child(2){right:32%;height:42px}.tree:nth-child(3){right:29%;height:49px}
+header{background:#fff;border-bottom:1px solid var(--line);padding:8px 0 22px}
+header a{color:var(--accent);text-decoration:none;font-size:.875rem;font-weight:600;display:inline-flex;align-items:center;min-height:44px}
+h1,h2,h3,p{margin:0}
+h1{font-size:clamp(2rem,4vw,3.25rem);letter-spacing:-.05em;line-height:1.08;font-weight:730;margin:2px 0 7px}
+header p{font-size:.96rem;color:#506158}
 .controls{display:flex;align-items:center;flex-wrap:wrap;gap:10px}main>.controls{padding:18px 0;border-bottom:1px solid var(--line)}label{font-weight:600;font-size:.9rem}
 input,select,button{font:inherit;color:inherit}select,#town,button{min-height:44px;border-radius:13px;padding:8px 12px;border:1px solid #cdd9d0;background:white}
 main>.controls label{display:flex;align-items:center;gap:7px}main>.controls label:has(input){border:1px solid #cdd9d0;border-radius:24px;padding:9px 15px;min-height:44px;background:white;cursor:pointer}
@@ -23,8 +21,8 @@ article p{margin:6px 0 10px;color:#46564e}article strong{background:#edf3e9;colo
 .card-foot{width:100%;margin-top:auto;border-top:1px solid var(--line);padding-top:12px;display:flex;align-items:center;justify-content:space-between;gap:8px}.card-foot a,button{font-weight:650;color:white;background:#215b49;border:0;border-radius:13px;padding:11px 13px;text-decoration:none;font-size:.88rem;cursor:pointer}
 details,footer{padding:18px 22px;margin:18px 0}summary{cursor:pointer;font-weight:650}li{margin:5px 0}footer{margin-bottom:40px}footer .controls{margin-top:12px}footer label{display:grid;gap:3px}footer button{align-self:flex-end}
 :focus-visible{outline:3px solid #bd782e;outline-offset:3px}
-@media(max-width:640px){main,header>div{width:calc(100% - 32px)}header{padding:8px 0 25px}header p{max-width:72%;font-size:.88rem}.land{width:32%}.tree{width:5px;height:30px}.tree:nth-child(2),.tree:nth-child(3){height:24px}main>.controls{gap:8px}main>.controls label:first-child{width:100%}#zone{flex:1}article{padding:18px}.results-head{margin-top:20px}footer .controls{align-items:stretch}footer label{flex:1;min-width:120px}#town,#portal{width:100%}footer button{width:100%}}
-</style><header><aside class="land" aria-hidden="true"><i class="tree"></i><i class="tree"></i><i class="tree"></i></aside><div><a href="/Marco-hub/">‹ Marco-Hub</a><h1>Casa Valdarno</h1><p>Affitti fino a 700 € al mese · priorità a Figline, Incisa e Matassino</p></div></header>
+@media(max-width:640px){main,header>div{width:calc(100% - 32px)}header{padding:0 0 15px}header p{font-size:.88rem}main>.controls{gap:8px}main>.controls label:first-child{width:100%}#zone{flex:1}article{padding:18px}.results-head{margin-top:20px}footer .controls{align-items:stretch}footer label{flex:1;min-width:120px}#town,#portal{width:100%}footer button{width:100%}}
+</style><header><div><a href="/Marco-hub/">‹ Marco-Hub</a><h1>Casa Valdarno</h1><p>Affitti fino a 700 € al mese · priorità a Figline, Incisa e Matassino</p></div></header>
 <main><div class="controls"><label>Zona <select id="zone"><option value="">Tutto il Valdarno</option></select></label><label><input type="checkbox" id="garage"> Con garage</label><label><input type="checkbox" id="privateOwner"> Da privati</label></div>
 <div class="results-head"><h2>Case in affitto</h2><p id="count" role="status">Caricamento degli annunci…</p></div><section id="homes"></section><details><summary>Fonti dell’ultima ricerca</summary><ul id="sources"></ul></details>
 <footer><h2>Cerca sui portali</h2><form id="webSearch" class="controls" action="https://www.google.it/search" target="_blank" rel="noopener"><label>Località <input id="town" value="Valdarno" required maxlength="80"></label><label>Fonte <select id="portal"><option value="">Tutto il web</option></select></label><input type="hidden" name="q" id="query"><button>Cerca annunci ↗</button></form></footer></main>
