@@ -76,4 +76,13 @@ if __name__ == '__main__':
     with ThreadPoolExecutor(max_workers=3) as pool:
         status = dict(pool.map(check, urls.items()))
     result = {'date': datetime.now(timezone.utc).date().isoformat(), 'urls': status}
-    Path('verifiche.json').write_text(json.dumps(result, indent=2) + '\n')
+    path = Path('verifiche.json')
+    previous = json.loads(path.read_text()) if path.exists() else {}
+    confirmed = previous.get('lastConfirmed', {})
+    result['lastConfirmed'] = {}
+    for url, state in status.items():
+        if state == 'detail':
+            result['lastConfirmed'][url] = result['date']
+        elif state == 'unverified' and url in confirmed:
+            result['lastConfirmed'][url] = confirmed[url]
+    path.write_text(json.dumps(result, indent=2) + '\n')
