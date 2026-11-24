@@ -1,0 +1,41 @@
+{
+  "updated": "2026-11-24",
+  "homes": [
+    {
+      "zone": "Matassino",
+      "title": "Bilocale in via Piero Gobetti",
+      "rent": 450,
+      "area": 40,
+      "contract": "Lungo termine",
+      "parking": "Posto auto scoperto",
+      "note": "Arredato, senza spese condominiali. Disponibile dal 1° dicembre 2026.",
+      "garage": false,
+      "privateOwner": false,
+      "url": "https://www.casa.it/immobili/55233267/"
+    },
+    {
+      "zone": "Figline centro",
+      "title": "Trilocale in corso Vittorio Veneto",
+      "rent": 650,
+      "area": 65,
+      "contract": "Lungo termine",
+      "parking": "Garage da verificare",
+      "note": "Arredato, due camere. Il privato indica un massimo di due occupanti.",
+      "garage": false,
+      "privateOwner": true,
+      "url": "https://www.casa.it/immobili/55068286/"
+    },
+    {
+      "zone": "Figline centro",
+      "title": "Quadrilocale con giardino",
+      "rent": 700,
+      "area": 65,
+      "contract": "4+4",
+      "parking": "Box singolo di 16 m²",
+      "note": "Due camere. Con le spese condominiali di 100 €, il totale è 800 € al mese.",
+      "garage": true,
+      "privateOwner": false,
+      "url": "https://www.casa.it/immobili/54917815/"
+    }
+  ]
+}
