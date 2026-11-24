@@ -1,0 +1,30 @@
+name: Verifica annunci
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 6,17 * * *'
+  push:
+    paths: ['affitti.json', 'verifica.py', '.github/workflows/verifica.yml']
+permissions:
+  contents: write
+concurrency:
+  group: verifica-annunci
+  cancel-in-progress: false
+jobs:
+  controlla:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - run: python3 verifica.py
+      - name: Pubblica esiti
+        run: |
+          git add verifiche.json
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m "Aggiorna gli esiti dei controlli degli annunci"
+            git push origin HEAD:main
+          fi
