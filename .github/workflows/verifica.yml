@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '20 6,17 * * *'
   push:
-    paths: ['affitti.json', 'verifica.py', '.github/workflows/verifica.yml']
+    paths: ['affitti.json', 'verifica.py', 'cerca_affitti.py', '.github/workflows/verifica.yml']
 permissions:
   contents: write
 concurrency:
@@ -18,10 +18,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
+      - run: python3 -m pip install --target "$RUNNER_TEMP/casa-deps" lxml
+      - run: PYTHONPATH="$RUNNER_TEMP/casa-deps" python3 cerca_affitti.py
       - run: python3 verifica.py
       - name: Pubblica esiti
         run: |
-          git add verifiche.json
+          git add affitti.json verifiche.json
           if ! git diff --cached --quiet; then
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
