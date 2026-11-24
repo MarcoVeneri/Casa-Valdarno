@@ -1,11 +1,33 @@
 <!doctype html>
 <html lang="it"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#16483b"><title>Casa Valdarno · Affitti</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f5f4ed;color:#20382f;font:16px/1.5 system-ui,sans-serif}main,header>div{width:min(960px,92%);margin:auto}header{background:#16483b;color:#fff;padding:26px 0 34px}header a{color:#d7e9d7}h1,h2,h3{line-height:1.14}h1{font:clamp(40px,7vw,72px)/1.1 Georgia,serif;margin:24px 0 5px}header p{margin:0;color:#e2ede4}.controls{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:20px 0}select,button{font:inherit;padding:8px;border-radius:8px;border:1px solid #aaa;background:white;color:inherit}input{accent-color:#16483b}#homes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:15px}article,details{background:#fff;border:1px solid #d6dbcf;border-radius:14px;padding:20px}article{display:flex;flex-direction:column}h3{margin:6px 0;font:26px/1.14 Georgia,serif}article b{font-size:21px}small{color:#526358}article p{margin:8px 0}article a{margin-top:auto;padding-top:14px;font-weight:650}a{color:#12543e}details{margin:18px 0 36px}summary{cursor:pointer;font-weight:650}#count{font-size:15px}footer{margin:24px 0}a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #c57d21}
-</style><header><div><a href="/Marco-hub/">‹ Marco-Hub</a><h1>Casa Valdarno</h1><p>Affitti fino a 700 € al mese · priorità a Figline, Incisa e Matassino</p></div></header>
+:root{color-scheme:light;--ink:#1e302c;--accent:#216955;--line:#e0e7e2;--paper:#f6f8f5}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+main,header>div{width:min(1080px,calc(100% - 48px));margin:auto}
+header{background:#e7ede1;position:relative;overflow:hidden;isolation:isolate;padding:22px 0 42px}
+header>div{position:relative;z-index:2}header a{color:#275446;text-decoration:none;font-size:.85rem;font-weight:650;display:inline-flex;align-items:center;min-height:44px}
+h1,h2,h3,p{margin:0}h1{font-size:clamp(2.5rem,7vw,5.6rem);letter-spacing:-.065em;line-height:1.02;font-weight:730;margin:14px 0 12px}header p{font-size:1rem;max-width:52%;color:#334b3e}
+.land{position:absolute;right:0;bottom:0;width:44%;height:100%;overflow:hidden;z-index:0;background:radial-gradient(circle at 72% 26%,#f3ce87 0 20px,transparent 21px)}
+.land:before,.land:after{content:"";position:absolute;width:145%;height:92%;border-radius:50% 50% 0 0;bottom:-46%;left:-5%;background:#97af8b;transform:rotate(-13deg)}
+.land:after{left:20%;bottom:-55%;background:#557e68;transform:rotate(14deg)}
+.tree{position:absolute;background:#365b48;width:9px;height:54px;bottom:28%;right:35%;border-radius:65% 60% 35% 35%;transform-origin:bottom;z-index:1}.tree:nth-child(2){right:32%;height:42px}.tree:nth-child(3){right:29%;height:49px}
+.controls{display:flex;align-items:center;flex-wrap:wrap;gap:10px}main>.controls{padding:18px 0;border-bottom:1px solid var(--line)}label{font-weight:600;font-size:.9rem}
+input,select,button{font:inherit;color:inherit}select,#town,button{min-height:44px;border-radius:13px;padding:8px 12px;border:1px solid #cdd9d0;background:white}
+main>.controls label{display:flex;align-items:center;gap:7px}main>.controls label:has(input){border:1px solid #cdd9d0;border-radius:24px;padding:9px 15px;min-height:44px;background:white;cursor:pointer}
+input[type=checkbox]{accent-color:var(--accent);width:16px;height:16px;margin:0}main>.controls label:has(:checked){background:#def0e5;border-color:#89b69f}
+.results-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px 12px;margin:28px 0 16px}h2{font-size:1.55rem;letter-spacing:-.045em}#count,small{font-size:.84rem;color:#506158}
+#homes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}article,footer,details{border:1px solid var(--line);background:white;border-radius:22px}
+article{padding:22px;display:flex;flex-direction:column;align-items:flex-start;box-shadow:0 5px 20px #1d382308;min-width:0}article small:first-child{font-weight:700;color:#376956}h3{font-size:1.25rem;letter-spacing:-.035em;line-height:1.22;margin:9px 0}
+article b{font-size:2.05rem;letter-spacing:-.055em;line-height:1.3}article b span{font-size:.86rem;font-weight:500;color:#596b61;letter-spacing:0;margin-left:4px}
+article p{margin:6px 0 10px;color:#46564e}article strong{background:#edf3e9;color:#36543b;border-radius:9px;padding:4px 9px;font-size:.83rem}
+.card-foot{width:100%;margin-top:auto;border-top:1px solid var(--line);padding-top:12px;display:flex;align-items:center;justify-content:space-between;gap:8px}.card-foot a,button{font-weight:650;color:white;background:#215b49;border:0;border-radius:13px;padding:11px 13px;text-decoration:none;font-size:.88rem;cursor:pointer}
+details,footer{padding:18px 22px;margin:18px 0}summary{cursor:pointer;font-weight:650}li{margin:5px 0}footer{margin-bottom:40px}footer .controls{margin-top:12px}footer label{display:grid;gap:3px}footer button{align-self:flex-end}
+:focus-visible{outline:3px solid #bd782e;outline-offset:3px}
+@media(max-width:640px){main,header>div{width:calc(100% - 32px)}header{padding:8px 0 25px}header p{max-width:72%;font-size:.88rem}.land{width:32%}.tree{width:5px;height:30px}.tree:nth-child(2),.tree:nth-child(3){height:24px}main>.controls{gap:8px}main>.controls label:first-child{width:100%}#zone{flex:1}article{padding:18px}.results-head{margin-top:20px}footer .controls{align-items:stretch}footer label{flex:1;min-width:120px}#town,#portal{width:100%}footer button{width:100%}}
+</style><header><aside class="land" aria-hidden="true"><i class="tree"></i><i class="tree"></i><i class="tree"></i></aside><div><a href="/Marco-hub/">‹ Marco-Hub</a><h1>Casa Valdarno</h1><p>Affitti fino a 700 € al mese · priorità a Figline, Incisa e Matassino</p></div></header>
 <main><div class="controls"><label>Zona <select id="zone"><option value="">Tutto il Valdarno</option></select></label><label><input type="checkbox" id="garage"> Con garage</label><label><input type="checkbox" id="privateOwner"> Da privati</label></div>
-<h2>Case in affitto</h2><p id="count" role="status">Caricamento degli annunci…</p><section id="homes"></section><details><summary>Fonti dell’ultima ricerca</summary><ul id="sources"></ul></details>
-<footer><h2>Cerca sui portali</h2><form id="webSearch" class="controls" action="https://www.google.it/search" target="_blank" rel="noopener"><label>Località <input id="town" value="Valdarno" required maxlength="80" style="padding:9px;width:145px"></label><label>Fonte <select id="portal"><option value="">Tutto il web</option></select></label><input type="hidden" name="q" id="query"><button>Cerca annunci ↗</button></form></footer></main>
+<div class="results-head"><h2>Case in affitto</h2><p id="count" role="status">Caricamento degli annunci…</p></div><section id="homes"></section><details><summary>Fonti dell’ultima ricerca</summary><ul id="sources"></ul></details>
+<footer><h2>Cerca sui portali</h2><form id="webSearch" class="controls" action="https://www.google.it/search" target="_blank" rel="noopener"><label>Località <input id="town" value="Valdarno" required maxlength="80"></label><label>Fonte <select id="portal"><option value="">Tutto il web</option></select></label><input type="hidden" name="q" id="query"><button>Cerca annunci ↗</button></form></footer></main>
 <script type="module">
 const get = id => document.getElementById(id);
 const element = (tag, text) => { const node = document.createElement(tag); node.textContent = text; return node; };
@@ -30,7 +52,11 @@ async function start() {
   for (const h of selected) {
    const url = new URL(h.url); if (url.protocol !== 'https:') continue;
    const card = element('article',''), link = element('a','Apri annuncio ↗'); link.href = url.href; link.target = '_blank'; link.rel = 'noopener';
-   card.append(element('small',h.zone+' · '+(h.privateOwner?'Privato':'Agenzia')),element('h3',h.title),element('b',h.rent+' €/mese'),element('p',h.area+' m² · '+h.contract),element('strong',h.parking),element('p',h.note),element('small',url.hostname.replace(/^www\./,'')),link);
+   const price = element("b",h.rent+" €");
+   price.append(element("span","/ mese"));
+   const foot = element("div",""); foot.className = "card-foot";
+   foot.append(element("small",url.hostname.replace(/^www\./,"")),link);
+   card.append(element('small',h.zone+' · '+(h.privateOwner?'Privato':'Agenzia')),element('h3',h.title),price,element('p',h.area+' m² · '+h.contract),element('strong',h.parking),element('p',h.note),foot);
    get('homes').append(card);
   }
  }
