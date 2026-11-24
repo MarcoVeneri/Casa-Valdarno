@@ -36,6 +36,41 @@
       "garage": true,
       "privateOwner": false,
       "url": "https://www.casa.it/immobili/54917815/"
+    },
+    {
+      "zone": "Incisa · La Massa",
+      "title": "Trilocale in via G. Di Vittorio",
+      "rent": 650,
+      "area": 62,
+      "contract": "4+4",
+      "parking": "Parcheggio in zona",
+      "note": "Disponibilità indicata tra dicembre 2026 e gennaio 2027.",
+      "garage": false,
+      "privateOwner": false,
+      "url": "https://ideale.remax.it/affitto-appartamento/figline-e-incisa-valdarno/incisa-in-val-d-arno-31451015-423"
+    },
+    {
+      "zone": "Terranuova · Botriolo",
+      "title": "Mansarda vicino a Castelfranco",
+      "rent": 600,
+      "area": 80,
+      "contract": "Durata da chiarire",
+      "parking": "Parcheggio esterno",
+      "note": "Arredata, due camere, terzo piano senza ascensore. Nessuna spesa condominiale indicata.",
+      "garage": false,
+      "privateOwner": true,
+      "url": "https://www.casadaprivato.it/attici-mansarde/mansarda-a-castelfranco-di-sopra-arezzo-424947"
     }
-  ]
+  ],
+  "sources": {
+    "Casa.it": "3 schede selezionate",
+    "RE/MAX": "1 scheda selezionata",
+    "CasaDaPrivato": "1 scheda selezionata",
+    "idealista": "Annuncio già presente su Casa.it",
+    "Wikicasa": "Scheda esaminata con contratto transitorio",
+    "Bakeca": "Scheda esaminata oltre budget e transitoria",
+    "Subito, Immobiliare.it, Tecnocasa": "Trovate pagine di ricerca",
+    "Facebook pubblico, Mitula": "Nessuna scheda idonea verificata",
+    "Trovit, Casa24, ImmobiliareValdarno.it": "Nessun risultato nella ricerca web mirata"
+  }
 }
