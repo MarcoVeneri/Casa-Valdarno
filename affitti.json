@@ -14,7 +14,8 @@
       "url": "https://www.idealista.it/immobile/37505993/",
       "links": [
         "https://www.casa.it/immobili/55233267/"
-      ]
+      ],
+      "municipality": "Figline e Incisa Valdarno"
     },
     {
       "zone": "Figline centro",
@@ -26,7 +27,11 @@
       "note": "Arredato, due camere. Il privato indica un massimo di due occupanti.",
       "garage": false,
       "privateOwner": true,
-      "url": "https://www.casa.it/immobili/55068286/"
+      "url": "https://www.casa.it/immobili/55068286/",
+      "municipality": "Figline e Incisa Valdarno",
+      "links": [
+        "https://www.idealista.it/immobile/37267208/"
+      ]
     },
     {
       "zone": "Incisa · La Massa",
@@ -42,7 +47,8 @@
       "links": [
         "https://www.idealista.it/immobile/37107099/",
         "https://ideale.remax.it/affitto-appartamento/figline-e-incisa-valdarno/incisa-in-val-d-arno-31451015-423"
-      ]
+      ],
+      "municipality": "Figline e Incisa Valdarno"
     },
     {
       "zone": "Terranuova · Botriolo",
@@ -66,7 +72,8 @@
       "note": "Arredato, al primo piano. L’agenzia indica disponibilità dal 1° dicembre 2026.",
       "garage": false,
       "privateOwner": false,
-      "url": "https://www.idealista.it/immobile/30468405/"
+      "url": "https://www.idealista.it/immobile/30468405/",
+      "municipality": "Figline e Incisa Valdarno"
     },
     {
       "zone": "Figline centro",
@@ -78,7 +85,8 @@
       "note": "Arredato, al secondo piano con aria condizionata.",
       "garage": false,
       "privateOwner": true,
-      "url": "https://www.idealista.it/immobile/21390092/"
+      "url": "https://www.idealista.it/immobile/21390092/",
+      "municipality": "Figline e Incisa Valdarno"
     },
     {
       "zone": "Figline",
@@ -93,7 +101,8 @@
       "url": "https://www.idealista.it/immobile/31232680/",
       "links": [
         "https://www.immobiliare.it/annunci/116053275/"
-      ]
+      ],
+      "municipality": "Figline e Incisa Valdarno"
     },
     {
       "zone": "Montevarchi · Stazione",
@@ -106,14 +115,93 @@
       "garage": false,
       "privateOwner": false,
       "url": "https://www.immobiliare.it/annunci/114110319/"
+    },
+    {
+      "title": "Proprietà rustica in affitto in Unnamed Road s.n.c",
+      "zone": "Poggio alla Croce - Brollo",
+      "municipality": "Figline e Incisa Valdarno",
+      "garage": false,
+      "parking": "Garage non indicato",
+      "rent": 1500,
+      "area": 80,
+      "url": "https://www.idealista.it/immobile/18840936/",
+      "contract": "Durata da chiarire",
+      "note": "Prezzo esposto 1.500 €. La descrizione riporta 1.000 €: canone da confermare.",
+      "privateOwner": false
+    },
+    {
+      "title": "Proprietà rustica in affitto in Via Aretina per San Donato, 13",
+      "zone": "Burchio - Palazzolo",
+      "municipality": "Figline e Incisa Valdarno",
+      "garage": false,
+      "parking": "Posto macchina con tettoia",
+      "rent": 1500,
+      "area": 75,
+      "url": "https://www.idealista.it/immobile/24493017/",
+      "contract": "Durata da chiarire",
+      "note": "Il privato propone anche soggiorni brevi. Durata pluriennale da concordare.",
+      "privateOwner": false
+    },
+    {
+      "title": "Attico in affitto in Piazza Averani s.n.c",
+      "zone": "Figline Centro - Stecco",
+      "municipality": "Figline e Incisa Valdarno",
+      "garage": false,
+      "parking": "Garage non indicato",
+      "rent": 1000,
+      "area": 80,
+      "url": "https://www.idealista.it/immobile/33235949/",
+      "contract": "Durata da chiarire",
+      "note": "",
+      "privateOwner": false
+    },
+    {
+      "title": "Bilocale in affitto in Piazza della Fattoria",
+      "zone": "Figline Centro - Stecco",
+      "municipality": "Figline e Incisa Valdarno",
+      "garage": false,
+      "parking": "Garage non indicato",
+      "rent": 850,
+      "area": 69,
+      "url": "https://www.idealista.it/immobile/34043591/",
+      "contract": "Durata da chiarire",
+      "note": "",
+      "privateOwner": false
+    },
+    {
+      "title": "Villetta bifamiliare in affitto in Via di Vincesimo, 1",
+      "zone": "Restone",
+      "municipality": "Figline e Incisa Valdarno",
+      "garage": false,
+      "parking": "Posto auto indicato",
+      "rent": 1000,
+      "area": 100,
+      "url": "https://www.idealista.it/immobile/36308299/",
+      "contract": "Durata da chiarire",
+      "note": "",
+      "privateOwner": false
+    },
+    {
+      "title": "Trilocale in affitto in Via Francesco Petrarca s.n.c",
+      "zone": "Incisa Centro - Massa",
+      "municipality": "Figline e Incisa Valdarno",
+      "garage": true,
+      "parking": "Box singolo compreso nel prezzo",
+      "rent": 850,
+      "area": 65,
+      "url": "https://www.idealista.it/immobile/36693183/",
+      "contract": "Durata da chiarire",
+      "note": "Due camere, ascensore e garage al piano seminterrato.",
+      "privateOwner": false
     }
   ],
   "sources": {
-    "idealista": "5 link diretti a immobili in catalogo",
+    "idealista": "12 link diretti in catalogo",
     "Immobiliare.it": "3 link diretti a immobili in catalogo",
     "Casa.it": "2 link diretti. Ritirato il quadrilocale con box da 700 €.",
     "RE/MAX": "Seconda fonte per il trilocale in via Di Vittorio",
     "CasaDaPrivato": "1 scheda diretta",
-    "Altri portali": "Nessun nuovo controllo in questo aggiornamento"
+    "Altri portali": "Nessun nuovo controllo in questo aggiornamento",
+    "idealista · ricerca nel comune": "22 schede esaminate. Esclusi gli annunci incompatibili con la ricerca residenziale."
   }
 }
