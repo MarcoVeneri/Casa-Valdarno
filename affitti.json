@@ -11,7 +11,10 @@
       "note": "Arredato, senza spese condominiali. Disponibile dal 1° dicembre 2026.",
       "garage": false,
       "privateOwner": false,
-      "url": "https://www.casa.it/immobili/55233267/"
+      "url": "https://www.idealista.it/immobile/37505993/",
+      "links": [
+        "https://www.casa.it/immobili/55233267/"
+      ]
     },
     {
       "zone": "Figline centro",
@@ -26,18 +29,6 @@
       "url": "https://www.casa.it/immobili/55068286/"
     },
     {
-      "zone": "Figline centro",
-      "title": "Quadrilocale con giardino",
-      "rent": 700,
-      "area": 65,
-      "contract": "4+4",
-      "parking": "Box singolo di 16 m²",
-      "note": "Due camere. Con le spese condominiali di 100 €, il totale è 800 € al mese.",
-      "garage": true,
-      "privateOwner": false,
-      "url": "https://www.casa.it/immobili/54917815/"
-    },
-    {
       "zone": "Incisa · La Massa",
       "title": "Trilocale in via G. Di Vittorio",
       "rent": 650,
@@ -47,7 +38,11 @@
       "note": "Disponibilità indicata tra dicembre 2026 e gennaio 2027.",
       "garage": false,
       "privateOwner": false,
-      "url": "https://ideale.remax.it/affitto-appartamento/figline-e-incisa-valdarno/incisa-in-val-d-arno-31451015-423"
+      "url": "https://www.immobiliare.it/annunci/133412250/",
+      "links": [
+        "https://www.idealista.it/immobile/37107099/",
+        "https://ideale.remax.it/affitto-appartamento/figline-e-incisa-valdarno/incisa-in-val-d-arno-31451015-423"
+      ]
     },
     {
       "zone": "Terranuova · Botriolo",
@@ -60,17 +55,65 @@
       "garage": false,
       "privateOwner": true,
       "url": "https://www.casadaprivato.it/attici-mansarde/mansarda-a-castelfranco-di-sopra-arezzo-424947"
+    },
+    {
+      "zone": "Incisa · La Fonte",
+      "title": "Trilocale in località La Fonte",
+      "rent": 550,
+      "area": 65,
+      "contract": "Durata da chiarire",
+      "parking": "Garage non indicato",
+      "note": "Arredato, al primo piano. L’agenzia indica disponibilità dal 1° dicembre 2026.",
+      "garage": false,
+      "privateOwner": false,
+      "url": "https://www.idealista.it/immobile/30468405/"
+    },
+    {
+      "zone": "Figline centro",
+      "title": "Attico in piazza Marsilio Ficino",
+      "rent": 700,
+      "area": 50,
+      "contract": "Durata da chiarire",
+      "parking": "Garage non indicato",
+      "note": "Arredato, al secondo piano con aria condizionata.",
+      "garage": false,
+      "privateOwner": true,
+      "url": "https://www.idealista.it/immobile/21390092/"
+    },
+    {
+      "zone": "Figline",
+      "title": "Appartamento in zona Fattoria",
+      "rent": 700,
+      "area": 50,
+      "contract": "Durata da chiarire",
+      "parking": "Garage non indicato",
+      "note": "I portali riportano indicazioni diverse su disponibilità e spese. Da confermare con il proprietario.",
+      "garage": false,
+      "privateOwner": true,
+      "url": "https://www.idealista.it/immobile/31232680/",
+      "links": [
+        "https://www.immobiliare.it/annunci/116053275/"
+      ]
+    },
+    {
+      "zone": "Montevarchi · Stazione",
+      "title": "Trilocale in via Ammiraglio Burzagli",
+      "rent": 500,
+      "area": 55,
+      "contract": "Durata da chiarire",
+      "parking": "Garage non indicato",
+      "note": "Arredato con camera soppalcata e studio. Massimo due persone.",
+      "garage": false,
+      "privateOwner": false,
+      "url": "https://www.immobiliare.it/annunci/114110319/"
     }
   ],
   "sources": {
-    "Casa.it": "3 schede selezionate",
-    "RE/MAX": "1 scheda selezionata",
-    "CasaDaPrivato": "1 scheda selezionata",
-    "idealista": "Annuncio già presente su Casa.it",
-    "Wikicasa": "Scheda esaminata con contratto transitorio",
-    "Bakeca": "Scheda esaminata oltre budget e transitoria",
-    "Subito, Immobiliare.it, Tecnocasa": "Trovate pagine di ricerca",
-    "Facebook pubblico, Mitula": "Nessuna scheda idonea verificata",
-    "Trovit, Casa24, ImmobiliareValdarno.it": "Nessun risultato nella ricerca web mirata"
+    "idealista": "5 link diretti a immobili in catalogo",
+    "Immobiliare.it": "3 link diretti a immobili in catalogo",
+    "Casa.it": "2 link diretti. Ritirato il quadrilocale con box da 700 €.",
+    "RE/MAX": "Seconda fonte per il trilocale in via Di Vittorio",
+    "CasaDaPrivato": "1 scheda diretta",
+    "Altri portali": "Nessun nuovo controllo in questo aggiornamento"
   }
 }
