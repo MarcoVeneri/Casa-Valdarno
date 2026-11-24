@@ -15,7 +15,10 @@
       "links": [
         "https://www.casa.it/immobili/55233267/"
       ],
-      "municipality": "Figline e Incisa Valdarno"
+      "municipality": "Figline e Incisa Valdarno",
+      "photos": [
+        "https://img4.idealista.it/blur/WEB_DETAIL_TOP-L-L/0/id.pro.it.image.master/71/dd/c6/858890135.jpg"
+      ]
     },
     {
       "zone": "Figline centro",
@@ -31,6 +34,9 @@
       "municipality": "Figline e Incisa Valdarno",
       "links": [
         "https://www.idealista.it/immobile/37267208/"
+      ],
+      "photos": [
+        "https://images-1.casa.it/360x275/listing/a27ac5bef5f98ac84cf5880f654e7bb2ea059a91"
       ]
     },
     {
@@ -48,7 +54,15 @@
         "https://www.idealista.it/immobile/37107099/",
         "https://ideale.remax.it/affitto-appartamento/figline-e-incisa-valdarno/incisa-in-val-d-arno-31451015-423"
       ],
-      "municipality": "Figline e Incisa Valdarno"
+      "municipality": "Figline e Incisa Valdarno",
+      "photos": [
+        "https://pwm.im-cdn.it/image/2025875854/cover-m-c.jpg",
+        "https://pwm.im-cdn.it/image/2025876684/m-c.jpg",
+        "https://pwm.im-cdn.it/image/2025876694/m-c.jpg",
+        "https://pwm.im-cdn.it/image/2025876714/m-c.jpg",
+        "https://pwm.im-cdn.it/image/2025876722/m-c.jpg",
+        "https://pwm.im-cdn.it/image/2025876736/m-c.jpg"
+      ]
     },
     {
       "zone": "Terranuova · Botriolo",
@@ -60,7 +74,12 @@
       "note": "Arredata, due camere, terzo piano senza ascensore. Nessuna spesa condominiale indicata.",
       "garage": false,
       "privateOwner": true,
-      "url": "https://www.casadaprivato.it/attici-mansarde/mansarda-a-castelfranco-di-sopra-arezzo-424947"
+      "url": "https://www.casadaprivato.it/attici-mansarde/mansarda-a-castelfranco-di-sopra-arezzo-424947",
+      "photos": [
+        "https://static.casadaprivato.it/images/properties/largethumbs/424947/d9fb3e86317c44fd845cd29f8728173d.jpg",
+        "https://static.casadaprivato.it/images/properties/largethumbs/424947/9e96dc17b6274937919cc8a59a775c70.jpg",
+        "https://static.casadaprivato.it/images/properties/largethumbs/424947/44ad44a5b63b4a64b8d610b7f62ed0c6.jpg"
+      ]
     },
     {
       "zone": "Incisa · La Fonte",
@@ -86,7 +105,10 @@
       "garage": false,
       "privateOwner": true,
       "url": "https://www.idealista.it/immobile/21390092/",
-      "municipality": "Figline e Incisa Valdarno"
+      "municipality": "Figline e Incisa Valdarno",
+      "photos": [
+        "https://img4.idealista.it/blur/WEB_DETAIL_TOP-L-L/0/id.pro.it.image.master/97/2a/83/299824288.jpg"
+      ]
     },
     {
       "zone": "Figline",
@@ -102,7 +124,10 @@
       "links": [
         "https://www.immobiliare.it/annunci/116053275/"
       ],
-      "municipality": "Figline e Incisa Valdarno"
+      "municipality": "Figline e Incisa Valdarno",
+      "photos": [
+        "https://img4.idealista.it/blur/WEB_DETAIL_TOP-L-P/0/id.pro.it.image.master/03/07/ba/647128248.jpg"
+      ]
     },
     {
       "zone": "Montevarchi · Stazione",
@@ -114,7 +139,12 @@
       "note": "Arredato con camera soppalcata e studio. Massimo due persone.",
       "garage": false,
       "privateOwner": false,
-      "url": "https://www.immobiliare.it/annunci/114110319/"
+      "url": "https://www.immobiliare.it/annunci/114110319/",
+      "photos": [
+        "https://pwm.im-cdn.it/image/1565216091/cover-m-c.jpg",
+        "https://pwm.im-cdn.it/image/1565216065/m-c.jpg",
+        "https://pwm.im-cdn.it/image/1565216019/m-c.jpg"
+      ]
     },
     {
       "title": "Proprietà rustica in affitto in Unnamed Road s.n.c",
@@ -127,7 +157,10 @@
       "url": "https://www.idealista.it/immobile/18840936/",
       "contract": "Durata da chiarire",
       "note": "Prezzo esposto 1.500 €. La descrizione riporta 1.000 €: canone da confermare.",
-      "privateOwner": false
+      "privateOwner": false,
+      "photos": [
+        "https://img4.idealista.it/blur/WEB_DETAIL_TOP-L-L/0/id.pro.it.image.master/67/fa/e5/270984619.jpg"
+      ]
     },
     {
       "title": "Proprietà rustica in affitto in Via Aretina per San Donato, 13",
@@ -166,7 +199,10 @@
       "url": "https://www.idealista.it/immobile/34043591/",
       "contract": "Durata da chiarire",
       "note": "",
-      "privateOwner": false
+      "privateOwner": false,
+      "photos": [
+        "https://img4.idealista.it/blur/WEB_DETAIL_TOP-L-L/0/id.pro.it.image.master/35/3d/52/739426090.jpg"
+      ]
     },
     {
       "title": "Villetta bifamiliare in affitto in Via di Vincesimo, 1",
