@@ -1,0 +1,35 @@
+name: Foto annunci
+on:
+  push:
+    branches: [main]
+    paths:
+      - affitti.json
+      - scripts/photos.py
+      - .github/workflows/listing-photos.yml
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: listing-photos
+  cancel-in-progress: false
+jobs:
+  photos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/photos.py
+      - name: Publish catalog photos
+        run: |
+          if git diff --quiet -- affitti.json; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add affitti.json
+          git commit -m "Aggiorna foto annunci"
+          git push origin HEAD:main
