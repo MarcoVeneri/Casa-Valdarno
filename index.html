@@ -24,7 +24,7 @@ async function start() {
  for (const [name,result] of Object.entries(data.sources)) get('sources').append(element('li',name+' · '+result));
  function render() {
   const selected = catalog.filter(h => (!get('zone').value || h.zone === get('zone').value) && (!get('garage').checked || h.garage) && (!get('privateOwner').checked || h.privateOwner)).sort((a,b)=>a.rent-b.rent);
-  get('count').textContent = selected.length+' annunci · Ricerca del '+data.updated.split('-').reverse().join('/');
+  get('count').textContent = selected.length+(selected.length === 1 ? ' annuncio' : ' annunci')+' · Ricerca del '+data.updated.split('-').reverse().join('/');
   get('homes').replaceChildren();
   if (!selected.length) get('homes').append(element('p','Nessuna casa con questi filtri.'));
   for (const h of selected) {
