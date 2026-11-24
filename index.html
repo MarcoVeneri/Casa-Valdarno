@@ -23,9 +23,9 @@ details,footer{padding:18px 22px;margin:18px 0}summary{cursor:pointer;font-weigh
 :focus-visible{outline:3px solid #bd782e;outline-offset:3px}
 @media(max-width:640px){main,header>div{width:calc(100% - 32px)}header{padding:0 0 15px}header p{font-size:.88rem}main>.controls{gap:8px}main>.controls label:first-child{width:100%}#zone{flex:1}article{padding:18px}.results-head{margin-top:20px}footer .controls{align-items:stretch}footer label{flex:1;min-width:120px}#town,#portal{width:100%}footer button{width:100%}}
 .portal-links,.other-links{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0}.portal-links a,.other-links a{color:var(--accent);font-weight:600;padding:7px 0}.other-links{font-size:.85rem}.portal-links{margin:0 0 16px}
-</style><header><div><a href="/Marco-hub/">‹ Marco-Hub</a><h1>Casa Valdarno</h1><p>Affitti fino a 700 € al mese · priorità a Figline, Incisa e Matassino</p></div></header>
+</style><header><div><a href="/Marco-hub/">‹ Marco-Hub</a><h1>Casa Valdarno</h1><p>Affitti in Valdarno · in ordine di prezzo</p></div></header>
 <main><div class="controls"><label>Zona <select id="zone"><option value="">Tutto il Valdarno</option></select></label><label><input type="checkbox" id="garage"> Con garage</label><label><input type="checkbox" id="privateOwner"> Da privati</label></div>
-<div class="results-head"><h2>Case in affitto</h2><p id="count" role="status">Caricamento degli annunci…</p></div><nav class="portal-links" aria-label="Tutti gli affitti a Figline e Incisa"><a href="https://www.idealista.it/affitto-case/figline-e-incisa-valdarno-firenze/?ordine=prezzi-asc">Figline e Incisa su idealista ↗</a><a href="https://www.immobiliare.it/affitto-appartamenti/figline-e-incisa-valdarno/?prezzoMassimo=700">Figline e Incisa su Immobiliare.it ↗</a></nav><section id="homes"></section><details><summary>Fonti dell’ultima ricerca</summary><ul id="sources"></ul></details>
+<div class="results-head"><h2>Case in affitto</h2><p id="count" role="status">Caricamento degli annunci…</p></div><nav class="portal-links" aria-label="Tutti gli affitti a Figline e Incisa"><a href="https://www.idealista.it/affitto-case/figline-e-incisa-valdarno-firenze/?ordine=prezzi-asc">Figline e Incisa su idealista ↗</a><a href="https://www.immobiliare.it/affitto-appartamenti/figline-e-incisa-valdarno/">Figline e Incisa su Immobiliare.it ↗</a></nav><section id="homes"></section><details><summary>Fonti dell’ultima ricerca</summary><ul id="sources"></ul></details>
 <footer><h2>Cerca sui portali</h2><form id="webSearch" class="controls" action="https://www.google.it/search" target="_blank" rel="noopener"><label>Località <input id="town" value="Valdarno" required maxlength="80"></label><label>Fonte <select id="portal"><option value="">Tutto il web</option></select></label><input type="hidden" name="q" id="query"><button>Cerca annunci ↗</button></form></footer></main>
 <script type="module">
 const get = id => document.getElementById(id);
@@ -34,7 +34,7 @@ const portals = {'Immobiliare.it':'immobiliare.it','Casa.it':'casa.it','idealist
 for (const [name,domain] of Object.entries(portals)) get('portal').add(new Option(name,domain));
 get('webSearch').addEventListener('submit',()=>{
  const domain = get('portal').value;
- get('query').value = [domain && 'site:'+domain,'appartamento affitto',get('town').value,'fino a 700 euro','-transitorio','-stagionale','-vacanze'].filter(Boolean).join(' ');
+ get('query').value = [domain && 'site:'+domain,'appartamento affitto',get('town').value,'-transitorio','-stagionale','-vacanze'].filter(Boolean).join(' ');
 });
 async function start() {
  const response = await fetch('./affitti.json', {cache:'no-store'});
@@ -60,11 +60,13 @@ async function start() {
   const links = [home.url,...(home.links || [])].filter(url=>checks.urls[url]==='detail' || recentCheck(url));
   return links.length ? [{...home,url:links[0],links:links.slice(1)}] : [];
  });
- const catalog = verifiedHomes.filter(h => h.rent > 0 && h.rent <= 700 && !/transitor/i.test(h.contract));
+ const catalog = verifiedHomes.filter(h => h.rent > 0 && !/transitor/i.test(h.contract));
+ const comune = 'Figline e Incisa Valdarno';
+ get('zone').add(new Option(comune+' · tutto il comune', comune));
  for (const zone of new Set(catalog.map(h => h.zone))) get('zone').add(new Option(zone, zone));
  for (const [name,result] of Object.entries(data.sources)) get('sources').append(element('li',name+' · '+result));
  function render() {
-  const selected = catalog.filter(h => (!get('zone').value || h.zone === get('zone').value) && (!get('garage').checked || h.garage) && (!get('privateOwner').checked || h.privateOwner)).sort((a,b)=>a.rent-b.rent);
+  const selected = catalog.filter(h => (!get('zone').value || h.zone === get('zone').value || h.municipality === get('zone').value) && (!get('garage').checked || h.garage) && (!get('privateOwner').checked || h.privateOwner)).sort((a,b)=>a.rent-b.rent);
   get('count').textContent = selected.length+(selected.length === 1 ? ' annuncio' : ' annunci')+' · Ultimo controllo del '+checks.date.split('-').reverse().join('/');
   get('homes').replaceChildren();
   if (!selected.length) get('homes').append(element('p',catalog.length ? 'Nessuna casa con questi filtri.' : 'Nessuna scheda confermata nell’ultimo controllo. Consulta i portali qui sopra.'));
@@ -75,7 +77,7 @@ async function start() {
    price.append(element("span","/ mese"));
    const foot = element("div",""); foot.className = "card-foot";
    foot.append(element("small",url.hostname.replace(/^www\./,"")),link);
-   card.append(element('small',h.zone+' · '+(h.privateOwner?'Privato':'Agenzia')),element('h3',h.title),price,element('p',h.area+' m² · '+h.contract),element('strong',h.parking),element('p',h.note),foot);
+   card.append(element('small',h.zone+' · '+(h.privateOwner === true ? 'Privato' : h.privateOwner === false ? 'Agenzia' : 'Annuncio')),element('h3',h.title),price,element('p',h.area+' m² · '+h.contract),element('strong',h.parking),element('p',h.note),foot);
    if ([h.url,...h.links].some(recentCheck)) card.append(element('small','Alcuni link risultavano aperti nelle ultime 48 ore. L’ultimo controllo non ha potuto riconfermarli.'));
    if (h.links.length) {
     const others = element('div',''); others.className = 'other-links';
