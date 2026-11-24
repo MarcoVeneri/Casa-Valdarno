@@ -35,7 +35,7 @@ def details(url):
     facts = ' '.join(doc.xpath('//*[@id="details"]//text()'))
     if PLACE.lower() not in location.lower() or 'affitto' not in title.lower():
         return None
-    if re.search(r'transitori|no residenza|non (?:è|vi è) (?:possibile|contratto)|contratti brevi|affitto a riscatto|solo per i mesi|non vi è contratto|non è possibile prender[vV]i residenza|esclusivamente.{0,20}riscatto|non.{0,18}residenza|solo contratto.{0,15}turistic', description, re.I):
+    if re.search(r'transitori|solo da (?:gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre) a |primarie aziende|interno di un residence|no residenza|non (?:è|vi è) (?:possibile|contratto)|contratti brevi|affitto a riscatto|solo per i mesi|non vi è contratto|non è possibile prender[vV]i residenza|esclusivamente.{0,20}riscatto|non.{0,18}residenza|solo contratto.{0,15}turistic', description, re.I):
         return None
     parking = re.search(r'box (?:singolo |doppio )?compreso nel prezzo', facts, re.I)
     has_garage = bool(parking) or bool(re.search(r'(?:ampio|comodo|proprio) garage|garage (?:privato|esclusivo|al piano)', description, re.I))
@@ -107,5 +107,7 @@ if __name__ == '__main__':
     except (OSError, ValueError) as exc:
         report = f'Ricerca non completata ({type(exc).__name__}).'
     catalog['sources']['idealista · ricerca nel comune'] = report
+    count = sum('idealista.it/' in u for h in catalog['homes'] for u in [h['url'], *h.get('links', [])])
+    catalog['sources']['idealista'] = f'{count} link diretti in catalogo'
     print(report)
     path.write_text(json.dumps(catalog, indent=2, ensure_ascii=False)+'\n')
