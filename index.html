@@ -55,8 +55,9 @@ async function start() {
   get('count').textContent='Verifiche da aggiornare. Consulta gli annunci direttamente sui portali.';
   return;
  }
+ const recentCheck = url => checks.urls[url] === 'unverified' && Date.now()-Date.parse(checks.lastConfirmed?.[url]) < 2*86400000;
  const verifiedHomes = data.homes.flatMap(home => {
-  const links = [home.url,...(home.links || [])].filter(url=>checks.urls[url]==='detail');
+  const links = [home.url,...(home.links || [])].filter(url=>checks.urls[url]==='detail' || recentCheck(url));
   return links.length ? [{...home,url:links[0],links:links.slice(1)}] : [];
  });
  const catalog = verifiedHomes.filter(h => h.rent > 0 && h.rent <= 700 && !/transitor/i.test(h.contract));
@@ -64,7 +65,7 @@ async function start() {
  for (const [name,result] of Object.entries(data.sources)) get('sources').append(element('li',name+' · '+result));
  function render() {
   const selected = catalog.filter(h => (!get('zone').value || h.zone === get('zone').value) && (!get('garage').checked || h.garage) && (!get('privateOwner').checked || h.privateOwner)).sort((a,b)=>a.rent-b.rent);
-  get('count').textContent = selected.length+(selected.length === 1 ? ' annuncio' : ' annunci')+' · Link controllati il '+checks.date.split('-').reverse().join('/');
+  get('count').textContent = selected.length+(selected.length === 1 ? ' annuncio' : ' annunci')+' · Ultimo controllo del '+checks.date.split('-').reverse().join('/');
   get('homes').replaceChildren();
   if (!selected.length) get('homes').append(element('p',catalog.length ? 'Nessuna casa con questi filtri.' : 'Nessuna scheda confermata nell’ultimo controllo. Consulta i portali qui sopra.'));
   for (const h of selected) {
@@ -75,6 +76,7 @@ async function start() {
    const foot = element("div",""); foot.className = "card-foot";
    foot.append(element("small",url.hostname.replace(/^www\./,"")),link);
    card.append(element('small',h.zone+' · '+(h.privateOwner?'Privato':'Agenzia')),element('h3',h.title),price,element('p',h.area+' m² · '+h.contract),element('strong',h.parking),element('p',h.note),foot);
+   if ([h.url,...h.links].some(recentCheck)) card.append(element('small','Alcuni link risultavano aperti nelle ultime 48 ore. L’ultimo controllo non ha potuto riconfermarli.'));
    if (h.links.length) {
     const others = element('div',''); others.className = 'other-links';
     for (const address of h.links) {
