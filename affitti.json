@@ -18,7 +18,8 @@
       "municipality": "Figline e Incisa Valdarno",
       "photos": [
         "https://img4.idealista.it/blur/WEB_DETAIL_TOP-L-L/0/id.pro.it.image.master/71/dd/c6/858890135.jpg"
-      ]
+      ],
+      "photo_status": "retained"
     },
     {
       "zone": "Figline centro",
@@ -36,8 +37,10 @@
         "https://www.idealista.it/immobile/37267208/"
       ],
       "photos": [
+        "https://images-1.casa.it/800x600/listing/a27ac5bef5f98ac84cf5880f654e7bb2ea059a91",
         "https://images-1.casa.it/360x275/listing/a27ac5bef5f98ac84cf5880f654e7bb2ea059a91"
-      ]
+      ],
+      "photo_status": "retrieved"
     },
     {
       "zone": "Incisa · La Massa",
@@ -56,13 +59,22 @@
       ],
       "municipality": "Figline e Incisa Valdarno",
       "photos": [
+        "https://doc9yh1c57ux2.cloudfront.net/properties/1083138/a5c7b6fe0633.jpg",
+        "https://doc9yh1c57ux2.cloudfront.net/properties/1083138/c99bb54070da.jpg",
+        "https://doc9yh1c57ux2.cloudfront.net/properties/1083138/45fc6ec2b5b6.jpg",
+        "https://doc9yh1c57ux2.cloudfront.net/properties/1083138/ce2c6009ea23.jpg",
+        "https://doc9yh1c57ux2.cloudfront.net/properties/1083138/00a8a53b669d.jpg",
+        "https://doc9yh1c57ux2.cloudfront.net/properties/1083138/597d9eaf5330.jpg",
+        "https://doc9yh1c57ux2.cloudfront.net/properties/1083138/95b88086958f.jpg",
+        "https://doc9yh1c57ux2.cloudfront.net/properties/1083138/32d569cfdb8a.jpg",
         "https://pwm.im-cdn.it/image/2025875854/cover-m-c.jpg",
         "https://pwm.im-cdn.it/image/2025876684/m-c.jpg",
         "https://pwm.im-cdn.it/image/2025876694/m-c.jpg",
         "https://pwm.im-cdn.it/image/2025876714/m-c.jpg",
         "https://pwm.im-cdn.it/image/2025876722/m-c.jpg",
         "https://pwm.im-cdn.it/image/2025876736/m-c.jpg"
-      ]
+      ],
+      "photo_status": "retrieved"
     },
     {
       "zone": "Terranuova · Botriolo",
@@ -79,7 +91,8 @@
         "https://static.casadaprivato.it/images/properties/largethumbs/424947/d9fb3e86317c44fd845cd29f8728173d.jpg",
         "https://static.casadaprivato.it/images/properties/largethumbs/424947/9e96dc17b6274937919cc8a59a775c70.jpg",
         "https://static.casadaprivato.it/images/properties/largethumbs/424947/44ad44a5b63b4a64b8d610b7f62ed0c6.jpg"
-      ]
+      ],
+      "photo_status": "retrieved"
     },
     {
       "zone": "Incisa · La Fonte",
@@ -92,7 +105,8 @@
       "garage": false,
       "privateOwner": false,
       "url": "https://www.idealista.it/immobile/30468405/",
-      "municipality": "Figline e Incisa Valdarno"
+      "municipality": "Figline e Incisa Valdarno",
+      "photo_status": "unavailable"
     },
     {
       "zone": "Figline centro",
@@ -108,7 +122,8 @@
       "municipality": "Figline e Incisa Valdarno",
       "photos": [
         "https://img4.idealista.it/blur/WEB_DETAIL_TOP-L-L/0/id.pro.it.image.master/97/2a/83/299824288.jpg"
-      ]
+      ],
+      "photo_status": "retained"
     },
     {
       "zone": "Figline",
@@ -127,7 +142,8 @@
       "municipality": "Figline e Incisa Valdarno",
       "photos": [
         "https://img4.idealista.it/blur/WEB_DETAIL_TOP-L-P/0/id.pro.it.image.master/03/07/ba/647128248.jpg"
-      ]
+      ],
+      "photo_status": "retained"
     },
     {
       "zone": "Montevarchi · Stazione",
@@ -144,7 +160,8 @@
         "https://pwm.im-cdn.it/image/1565216091/cover-m-c.jpg",
         "https://pwm.im-cdn.it/image/1565216065/m-c.jpg",
         "https://pwm.im-cdn.it/image/1565216019/m-c.jpg"
-      ]
+      ],
+      "photo_status": "retained"
     },
     {
       "title": "Proprietà rustica in affitto in Unnamed Road s.n.c",
@@ -160,7 +177,8 @@
       "privateOwner": false,
       "photos": [
         "https://img4.idealista.it/blur/WEB_DETAIL_TOP-L-L/0/id.pro.it.image.master/67/fa/e5/270984619.jpg"
-      ]
+      ],
+      "photo_status": "retained"
     },
     {
       "title": "Proprietà rustica in affitto in Via Aretina per San Donato, 13",
@@ -173,7 +191,8 @@
       "url": "https://www.idealista.it/immobile/24493017/",
       "contract": "Durata da chiarire",
       "note": "Il privato propone anche soggiorni brevi. Durata pluriennale da concordare.",
-      "privateOwner": false
+      "privateOwner": false,
+      "photo_status": "unavailable"
     },
     {
       "title": "Attico in affitto in Piazza Averani s.n.c",
@@ -186,7 +205,8 @@
       "url": "https://www.idealista.it/immobile/33235949/",
       "contract": "Durata da chiarire",
       "note": "",
-      "privateOwner": false
+      "privateOwner": false,
+      "photo_status": "unavailable"
     },
     {
       "title": "Bilocale in affitto in Piazza della Fattoria",
@@ -202,7 +222,8 @@
       "privateOwner": false,
       "photos": [
         "https://img4.idealista.it/blur/WEB_DETAIL_TOP-L-L/0/id.pro.it.image.master/35/3d/52/739426090.jpg"
-      ]
+      ],
+      "photo_status": "retained"
     },
     {
       "title": "Villetta bifamiliare in affitto in Via di Vincesimo, 1",
@@ -215,7 +236,8 @@
       "url": "https://www.idealista.it/immobile/36308299/",
       "contract": "Durata da chiarire",
       "note": "",
-      "privateOwner": false
+      "privateOwner": false,
+      "photo_status": "unavailable"
     },
     {
       "title": "Trilocale in affitto in Via Francesco Petrarca s.n.c",
@@ -228,7 +250,8 @@
       "url": "https://www.idealista.it/immobile/36693183/",
       "contract": "Durata da chiarire",
       "note": "Due camere, ascensore e garage al piano seminterrato.",
-      "privateOwner": false
+      "privateOwner": false,
+      "photo_status": "unavailable"
     }
   ],
   "sources": {
