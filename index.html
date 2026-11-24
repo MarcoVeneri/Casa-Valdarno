@@ -23,6 +23,7 @@ details,footer{padding:18px 22px;margin:18px 0}summary{cursor:pointer;font-weigh
 :focus-visible{outline:3px solid #bd782e;outline-offset:3px}
 @media(max-width:640px){main,header>div{width:calc(100% - 32px)}header{padding:0 0 15px}header p{font-size:.88rem}main>.controls{gap:8px}main>.controls label:first-child{width:100%}#zone{flex:1}article{padding:18px}.results-head{margin-top:20px}footer .controls{align-items:stretch}footer label{flex:1;min-width:120px}#town,#portal{width:100%}footer button{width:100%}}
 .portal-links,.other-links{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0}.portal-links a,.other-links a{color:var(--accent);font-weight:600;padding:7px 0}.other-links{font-size:.85rem}.portal-links{margin:0 0 16px}
+.gallery{position:relative;width:calc(100% + 44px);margin:-22px -22px 16px;aspect-ratio:16/10;background:#e9eeeb;border-radius:21px 21px 0 0;overflow:hidden;display:grid;place-items:center;color:#506158}.gallery img{width:100%;height:100%;object-fit:cover;cursor:zoom-in;position:absolute;inset:0}.gallery button{position:absolute;top:50%;transform:translateY(-50%);background:#fff;color:#21362c;border-radius:50%;width:38px;height:38px;padding:0;min-height:0;font-size:24px}.gallery .prev{left:9px}.gallery .next{right:9px}.photo-count{position:absolute;bottom:9px;right:9px;background:#000a;color:white;padding:3px 9px;border-radius:12px;font-size:12px}dialog{border:0;background:#141414;color:white;padding:12px;width:min(96vw,1100px);border-radius:16px}dialog::backdrop{background:#000b}dialog img{width:100%;max-height:78vh;object-fit:contain}dialog nav{display:flex;justify-content:space-between;align-items:center}@media(max-width:640px){.gallery{width:calc(100% + 36px);margin:-18px -18px 14px}} 
 </style><header><div><a href="/Marco-hub/">‹ Marco-Hub</a><h1>Casa Valdarno</h1><p>Affitti in Valdarno · in ordine di prezzo</p></div></header>
 <main><div class="controls"><label>Zona <select id="zone"><option value="">Tutto il Valdarno</option></select></label><label><input type="checkbox" id="garage"> Con garage</label><label><input type="checkbox" id="privateOwner"> Da privati</label></div>
 <div class="results-head"><h2>Case in affitto</h2><p id="count" role="status">Caricamento degli annunci…</p></div><nav class="portal-links" aria-label="Tutti gli affitti a Figline e Incisa"><a href="https://www.idealista.it/affitto-case/figline-e-incisa-valdarno-firenze/?ordine=prezzi-asc">Figline e Incisa su idealista ↗</a><a href="https://www.immobiliare.it/affitto-appartamenti/figline-e-incisa-valdarno/">Figline e Incisa su Immobiliare.it ↗</a></nav><section id="homes"></section><details><summary>Fonti dell’ultima ricerca</summary><ul id="sources"></ul></details>
@@ -36,6 +37,20 @@ get('webSearch').addEventListener('submit',()=>{
  const domain = get('portal').value;
  get('query').value = [domain && 'site:'+domain,'appartamento affitto',get('town').value,'-transitorio','-stagionale','-vacanze'].filter(Boolean).join(' ');
 });
+function gallery(h){
+ const box=element('div','');box.className='gallery';
+ const photos=[...new Set([...(Array.isArray(h.photos)?h.photos:[]),h.image].filter(x=>typeof x==='string' && /^https:\/\//i.test(x)))];
+ if(!photos.length){box.append(element('span','Foto non disponibili'));return box;}
+ const img=document.createElement('img');img.alt=h.title;img.loading='lazy';img.referrerPolicy='no-referrer';
+ const count=element('span','');count.className='photo-count';let i=0;
+ const show=()=>{img.src=photos[i];count.textContent=(i+1)+' / '+photos.length;};
+ const step=d=>{i=(i+d+photos.length)%photos.length;show();};
+ const button=(t,c,fn)=>{const b=element('button',t);b.type='button';b.className=c;b.setAttribute('aria-label',c==='prev'?'Foto precedente':'Foto successiva');b.onclick=fn;return b;};
+ box.append(img,count);if(photos.length>1)box.append(button('‹','prev',()=>step(-1)),button('›','next',()=>step(1)));
+ let x=0;box.addEventListener('touchstart',e=>x=e.changedTouches[0].clientX,{passive:true});box.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-x;if(Math.abs(d)>35)step(d<0?1:-1);},{passive:true});
+ img.onerror=()=>{photos.splice(i,1);if(!photos.length){box.replaceChildren(element('span','Foto non disponibili'));return;}i%=photos.length;show();};
+ img.onclick=()=>{const d=document.createElement('dialog'),big=document.createElement('img'),nav=document.createElement('nav');big.alt=h.title;big.referrerPolicy='no-referrer';const refresh=()=>big.src=photos[i];const move=n=>{step(n);refresh();};const close=element('button','Chiudi ×');close.onclick=()=>d.close();nav.append(button('‹','prev',()=>move(-1)),close,button('›','next',()=>move(1)));d.append(big,nav);document.body.append(d);d.addEventListener('close',()=>d.remove());d.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')move(-1);if(e.key==='ArrowRight')move(1);});refresh();d.showModal();};show();return box;
+}
 async function start() {
  let response;
  try {
@@ -83,7 +98,7 @@ async function start() {
    price.append(element("span","/ mese"));
    const foot = element("div",""); foot.className = "card-foot";
    foot.append(element("small",url.hostname.replace(/^www\./,"")),link);
-   card.append(element('small',h.zone+' · '+(h.privateOwner === true ? 'Privato' : h.privateOwner === false ? 'Agenzia' : 'Annuncio')),element('h3',h.title),price,element('p',h.area+' m² · '+h.contract),element('strong',h.parking),element('p',h.note),foot);
+   card.append(gallery(h),element('small',h.zone+' · '+(h.privateOwner === true ? 'Privato' : h.privateOwner === false ? 'Agenzia' : 'Annuncio')),element('h3',h.title),price,element('p',h.area+' m² · '+h.contract),element('strong',h.parking),element('p',h.note),foot);
    if ([h.url,...h.links].some(recentCheck)) card.append(element('small','Alcuni link risultavano aperti nelle ultime 48 ore. L’ultimo controllo non ha potuto riconfermarli.'));
    if (h.links.length) {
     const others = element('div',''); others.className = 'other-links';
