@@ -5,10 +5,16 @@
 </style><header><div><a href="/Marco-hub/">‹ Marco-Hub</a><h1>Casa Valdarno</h1><p>Affitti fino a 700 € al mese · priorità a Figline, Incisa e Matassino</p></div></header>
 <main><div class="controls"><label>Zona <select id="zone"><option value="">Tutto il Valdarno</option></select></label><label><input type="checkbox" id="garage"> Con garage</label><label><input type="checkbox" id="privateOwner"> Da privati</label></div>
 <h2>Case in affitto</h2><p id="count" role="status">Caricamento degli annunci…</p><section id="homes"></section><details><summary>Fonti dell’ultima ricerca</summary><ul id="sources"></ul></details>
-<footer><a id="search" href="https://www.google.it/search?q=affitto+appartamento+Valdarno+entro+700+euro+-transitorio">Cerca altri annunci sul web ↗</a></footer></main>
+<footer><h2>Cerca sui portali</h2><form id="webSearch" class="controls" action="https://www.google.it/search" target="_blank" rel="noopener"><label>Località <input id="town" value="Valdarno" required maxlength="80" style="padding:9px;width:145px"></label><label>Fonte <select id="portal"><option value="">Tutto il web</option></select></label><input type="hidden" name="q" id="query"><button>Cerca annunci ↗</button></form></footer></main>
 <script type="module">
 const get = id => document.getElementById(id);
 const element = (tag, text) => { const node = document.createElement(tag); node.textContent = text; return node; };
+const portals = {'Immobiliare.it':'immobiliare.it','Casa.it':'casa.it','idealista':'idealista.it','Subito':'subito.it','Wikicasa':'wikicasa.it','Bakeca':'bakeca.it','CasaDaPrivato':'casadaprivato.it','Facebook pubblico':'facebook.com','Tecnocasa':'tecnocasa.it','RE/MAX':'remax.it','Trovacasa':'trovacasa.it','Mitula':'mitula.it'};
+for (const [name,domain] of Object.entries(portals)) get('portal').add(new Option(name,domain));
+get('webSearch').addEventListener('submit',()=>{
+ const domain = get('portal').value;
+ get('query').value = [domain && 'site:'+domain,'appartamento affitto',get('town').value,'fino a 700 euro','-transitorio','-stagionale','-vacanze'].filter(Boolean).join(' ');
+});
 async function start() {
  const response = await fetch('./affitti.json', {cache:'no-store'});
  if (!response.ok) throw Error('Catalogo indisponibile');
