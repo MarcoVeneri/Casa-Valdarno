@@ -60,7 +60,9 @@ def check(item):
         visible = ' '.join(' '.join(page.words).lower().split())
         if re.search(r'(?:questo|quest[’\x27])\s*(?:immobile|annuncio) non (?:è|e\x27) più disponibile|annuncio (?:è stato |è )?(?:ritirato|disattivato|scaduto)', visible):
             return url, 'withdrawn'
-        price = rf'(?:€\s*{rent}\b|\b{rent}\s*(?:€|euro))'
+        formatted = re.escape(f'{rent:,}'.replace(',', '.'))
+        amount = rf'(?:{rent}|{formatted})'
+        price = rf'(?:€\s*{amount}\b|\b{amount}\s*(?:€|euro))'
         if page.headings and page.canonical and re.search(price, visible):
             return url, 'detail'
         return url, 'unverified'
